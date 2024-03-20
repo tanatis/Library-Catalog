@@ -38,6 +38,7 @@ jobs:
 
   deploy_be:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     needs: build_and_test
     steps:
         - name: Deploy to production
@@ -48,6 +49,8 @@ jobs:
   
   deploy_fe:
     runs-on: ubuntu-latest
+    # Run this job only if branch is main. Otherwise skip the job
+    if: github.ref == 'refs/heads/main'
     needs: deploy_be
     steps:
         - name: Deploy to production
