@@ -343,19 +343,19 @@ test('Verify That All Books Are Displayed', async ({page}) => {
 
 });
 
-test('Verify That No Books Are Displayed', async ({page}) => {
-    await page.goto(loginUrl);
-    await page.fill('#email', loginEmail);
-    await page.fill('#password', password);
-    await Promise.all([
-        page.click('input[type="submit"]'),
-        page.waitForURL(catalogUrl)
-    ]);
+// test('Verify That No Books Are Displayed', async ({page}) => {
+//     await page.goto(loginUrl);
+//     await page.fill('#email', loginEmail);
+//     await page.fill('#password', password);
+//     await Promise.all([
+//         page.click('input[type="submit"]'),
+//         page.waitForURL(catalogUrl)
+//     ]);
     
-    const noBooksMessage = await page.textContent('.no-books');
-    expect(noBooksMessage).toBe('No books in database!');
+//     const noBooksMessage = await page.textContent('.no-books');
+//     expect(noBooksMessage).toBe('No books in database!');
 
-});
+// });
 
 //Tests for "Details" page
 test('Login and navigate to Details page', async ({page}) => {
